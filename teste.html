@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Teste Bem Paggo</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&family=Work+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='css/style.css'>
+    
+<script> 
+    function increment() {
+        document.getElementById('qtde').value++;
+    }
+
+    function decrement() {
+        if (document.getElementById('qtde').value > 1) {
+            document.getElementById('qtde').value--;
+        }
+    }
+
+    function calcValorTotal(){
+        
+        let valortotal=0;
+
+        const material=document.getElementById("mat");
+        const tamanho=document.getElementById("tam");
+        const quantidade=document.getElementById("qtde").value;
+        /*Acima no QTDE estamos pegando o valor selecionado no INPUT da quatidade*/
+        if(tamanho.value==="p"){
+
+            /*Valor do P=5*/
+            valortotal=5;
+        }
+
+        if(tamanho.value==="m"){
+            valortotal=10;
+             /*Valor do m=10*/
+        }
+
+        if(tamanho.value==="g"){
+            valortotal=15;
+             /*Valor do g=15*/
+        }
+        
+        alert(`Total a pagar:${valortotal*quantidade}`);
+    }
+            
+     </script>
+
+
+</head>
+
+<body>
+
+    <div class="box-form">
+        <form>
+            <header>
+                <h1>Formulário<br/> para compra de<br/>
+                    <b>Pacote de Adesivos</b></h1>
+            </header>
+            <content>
+                
+                <label>Selecione o Tipo de Adesivo</label>
+                <select>
+                    <option>Redondo</option>
+                    <option>Retangular</option>
+                    <option>Quadrado</option>
+                </select>
+                <label>Tamanho do Adesivo</label>
+                <select id="tam">
+                    <option value="p">Pequeno</option>
+                    <option value="m">Medio</option>
+                    <option value="g">Grande</option>
+                </select>
+                
+                <label>Material do Adesivo</label>
+                <select id="mat">
+                    /*VALOR UNICO PARA OS MATERIAIS*/
+                    <option value="bopp">BOPP Branco Fosco 7</option>
+                    
+                    <option value="couc">Couché Adesivo</option>
+                    
+                </select>
+
+                <label>Quantidade</label>
+
+                <div>
+                    <button type="button" onclick="decrement()">-</button>
+                    <input type="text" id="qtde" value="1" readonly/>
+                    <button type="button" onclick="increment()">+</button>
+                </div>
+
+                <label>Observações </label>
+                    <textarea placeholder="Alguma observação?"></textarea>
+                
+                
+
+
+            </content>
+            <footer>
+               <button id="envio" type="button" onclick="calcValorTotal()">CONTINUAR</button>
+            </footer>
+        </form>
+    </div>
+
+
+</body>
+
+</html>
